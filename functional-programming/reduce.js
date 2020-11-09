@@ -1,6 +1,5 @@
-// The variable watchList holds an array of objects with information on several movies. Use a combination of filter and map on watchList to assign a new array of objects with only title and rating keys. The new array should only include objects where imdbRating is greater than or equal to 8.0. Note that the rating values are saved as strings in the object and you may need to convert them into numbers to perform mathematical operations on them.
+// The variable watchList holds an array of objects with information on several movies. Use reduce to find the average IMDB rating of the movies directed by Christopher Nolan. Recall from prior challenges how to filter data and map over it to pull what you need. You may need to create other variables, and return the average rating from getRating function. Note that the rating values are saved as strings in the object and need to be converted into numbers before they are used in any mathematical operations.
 
-// The global variable
 var watchList = [
   {
     "Title": "Inception",
@@ -115,17 +114,11 @@ var watchList = [
 ];
 
 function getRating(watchList){
+  // Only change code below this line
+  var averageRating;
 
-  var averageRating =
-  // first filter for films directed by Christopher Nolan
-  watchList
-  .filter(film => film.Director === "Christopher Nolan")
-  // turn the number strings into numbers
-  .map(film => Number(film.imdbRating))
-  // use reduce to sum the ratings and divide by the number of movies to get the average rating
-  .reduce((sumOfRatings, rating) => sumOfRatings + rating) / watchList.filter(film => film.Director === "Christopher Nolan").length
 
+  // Only change code above this line
   return averageRating;
 }
-
 console.log(getRating(watchList));
