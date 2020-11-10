@@ -114,11 +114,16 @@ var watchList = [
 ];
 
 function getRating(watchList){
-  // Only change code below this line
-  var averageRating;
-
-
-  // Only change code above this line
-  return averageRating;
-}
-console.log(getRating(watchList));
+    var averageRating =
+    watchList
+      // Use filter to find movies directed by Christopher Nolan
+      .filter(movie => movie.Director === "Christopher Nolan")
+      // Use map to convert their ratings from strings to numbers
+      .map(movie => Number(movie.imdbRating))
+      // Use reduce to add together their ratings
+      .reduce((sumOfRatings, rating) => sumOfRatings + rating) /
+    // Divide by the number of Nolan movies to get the average rating
+    watchList.filter(movie => movie.Director === "Christopher Nolan").length;
+    return averageRating;
+  }
+  console.log(getRating(watchList));
