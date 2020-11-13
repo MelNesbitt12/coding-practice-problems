@@ -53,6 +53,23 @@ function onlyInOneArray(first, second) {
 
 diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
+
+// Another solution using .concat and .filter methods:
+function diffArray(arr1, arr2) {
+  var newArr = []
+  // here, we set newArr equal to the result of concatination.
+  // First we filter arr1, taking each element attempting to find a matching value in arr2. If the value of element in arr2 is -1, it means it does not exist in the second array.
+  // we then do the same thing, but filtering arr2 instead of arr1.
+  // here, concat is used to merge the filtered versions of arr1 and arr2 together
+  newArr = arr1.filter(el => arr2.indexOf(el)=== -1).concat(arr2.filter(el => arr1.indexOf(el) === -1))
+  return newArr
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+
+
+
+
 // Solution using objects...although you cannot have an array with different data types in one, so all of the inputs are coerced into strings
 
 function diffArray(arr1, arr2) {
